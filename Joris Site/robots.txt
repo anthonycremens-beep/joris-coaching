@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://joris-danniau-coaching.be/sitemap.xml
