@@ -179,10 +179,24 @@
         #intro .actions { display: flex !important; flex-direction: column; gap: 0.75rem; align-items: stretch; }
         #intro .actions .button { width: 100%; }
       }
-      /* Styles horaires */
-      .slots { list-style: none; margin: .5rem 0 1rem; padding: 0; }
-      .slots li { display:flex; align-items:center; justify-content:space-between; padding:.5rem .75rem; border:1px solid rgba(255,255,255,.12); border-radius:.5rem; margin-bottom:.5rem; }
-      .badge { font-size:.9rem; padding:.2rem .5rem; border-radius:.35rem; white-space:nowrap; color:#fff; }
+
+      /* ====== Styles de la section Horaires ====== */
+      .day-block { margin: 2.25rem 0 2rem; }
+      .day-title { font-size: 1.6rem; font-weight: 800; letter-spacing:.02em; margin: 0 0 .75rem; }
+      .place-title { font-weight: 700; margin: .25rem 0 .75rem; opacity:.95; }
+      .event-list { list-style: none; margin: 0 0 1.25rem; padding: 0; }
+      .event-item {
+        display:flex; gap:.75rem; align-items:center; justify-content:space-between;
+        border:1px solid rgba(255,255,255,.12); border-radius:.6rem; padding:.55rem .8rem; margin:.45rem 0;
+      }
+      .event-left { display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center; }
+      .event-hour { font-weight:700; }
+      .event-tags { display:flex; gap:.35rem; flex-wrap:wrap; }
+      .tag {
+        font-size:.75rem; padding:.15rem .45rem; border-radius:.35rem;
+        border:1px solid rgba(255,255,255,.2); opacity:.9;
+      }
+      .badge { font-size:.9rem; padding:.2rem .55rem; border-radius:.35rem; white-space:nowrap; color:#fff; }
       .badge-ok   { background:#1e824c; }   /* vert */
       .badge-rare { background:#b57900; }   /* ambre */
       .badge-full { background:#8a2b2b; }   /* rouge */
@@ -192,7 +206,7 @@
     <!-- ====== PapaParse (lecture CSV) ====== -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script>
-      // URL publique CSV du Google Sheet
+      /* URL publique CSV du Google Sheet */
       const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTYSz-UNdUZXgZFdunl7bHpgZXU3NBNWfWa-5krmWyw1NuoO5D63v_0Bx_mHCCqxSKeU53ljU94j1H/pub?gid=0&single=true&output=csv";
     </script>
   </head>
@@ -269,60 +283,11 @@
             <p>Mises à jour automatiques via Google Sheet.</p>
           </header>
 
-          <!-- Contenu dynamique (rempli par le Google Sheet) -->
+          <!-- Contenu dynamique (rempli depuis le Sheet) -->
           <div id="horaires-dynamic"></div>
 
-          <!-- Fallback (affiché seulement si le chargement CSV échoue) -->
-          <div id="horaires-fallback">
-            <article itemscope itemtype="https://schema.org/ExerciseGym">
-              <h3 itemprop="name">Cours collectifs — Tubize</h3>
-
-              <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                <strong>École Saint-Joseph</strong> —
-                <span itemprop="streetAddress">Grand'Place 31</span>,
-                <span itemprop="postalCode">1480</span> <span itemprop="addressLocality">Tubize</span>
-              </p>
-              <ul class="slots">
-                <li>
-                  <strong>Mercredi 18:00</strong>
-                  <span class="badge badge-rare">1 place</span>
-                  <meta itemprop="openingHours" content="We 18:00-19:00">
-                </li>
-                <li>
-                  <strong>Mercredi 19:00</strong>
-                  <span class="badge badge-ok">3 places</span>
-                  <meta itemprop="openingHours" content="We 19:00-20:00">
-                </li>
-                <li>
-                  <strong>Mercredi 20:00</strong>
-                  <span class="badge badge-full">Complet</span>
-                  <meta itemprop="openingHours" content="We 20:00-21:00">
-                </li>
-              </ul>
-
-              <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" style="margin-top:1rem">
-                <strong>Stade Leburton</strong> —
-                <span itemprop="streetAddress">Allée des Sports 5</span>,
-                <span itemprop="postalCode">1480</span> <span itemprop="addressLocality">Tubize</span>
-              </p>
-              <ul class="slots">
-                <li>
-                  <strong>Samedi 08:45</strong>
-                  <span class="badge badge-ok">2 places</span>
-                  <meta itemprop="openingHours" content="Sa 08:45-09:45">
-                </li>
-              </ul>
-            </article>
-
-            <article itemscope itemtype="https://schema.org/Place" style="margin-top:2rem">
-              <h3>Studio — Braine-le-Château</h3>
-              <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                <span itemprop="streetAddress">112 Rue Landuyt</span>,
-                <span itemprop="postalCode">1440</span> <span itemprop="addressLocality">Braine-le-Château</span>
-              </p>
-              <p class="note">Note planning : le <strong>jeudi soir</strong> et le <strong>samedi</strong>, les cours peuvent commencer à <strong>:30</strong> (et non à l’heure pile).</p>
-            </article>
-          </div>
+          <!-- Fallback si CSV KO (option, peut être retiré si tu veux) -->
+          <div id="horaires-fallback" style="display:none;"></div>
 
           <ul class="actions" style="margin-top:1.5rem">
             <li><a href="#contact" class="button primary">Réserver un créneau</a></li>
@@ -547,86 +512,126 @@
       })();
     </script>
 
-    <!-- ====== Chargement dynamique des horaires depuis Google Sheet ====== -->
+    <!-- ====== Chargement dynamique des horaires depuis Google Sheet (groupé PAR JOUR) ====== -->
     <script>
-      // Ordre FR pour trier les jours
       const DAY_ORDER = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
 
-      function parseTimeToMinutes(hhmm) {
-        // "18:00" -> 1080
-        const m = (hhmm || "").trim().match(/^(\d{1,2}):(\d{2})$/);
-        if (!m) return 0;
-        return parseInt(m[1],10) * 60 + parseInt(m[2],10);
-        }
+      function norm(s){ return (s||"").toString().trim(); }
 
-      function renderHorairesDynamic(rows) {
-        const container = document.getElementById("horaires-dynamic");
-        if (!rows || !rows.length) return;
-
-        // Filtrer lignes actives
-        const active = rows.filter(r => String(r.actif || "").toLowerCase() === "true");
-
-        // Groupes par "lieu — adresse"
-        const grouped = {};
-        active.forEach(r => {
-          const key = `${(r.lieu||"").trim()} — ${(r.adresse||"").trim()}`;
-          if (!grouped[key]) grouped[key] = [];
-          grouped[key].push(r);
-        });
-
-        // Construire le HTML
-        let html = "";
-
-        Object.keys(grouped).forEach(key => {
-          // trier chaque groupe par jour puis heure
-          grouped[key].sort((a,b) => {
-            const da = DAY_ORDER.indexOf((a.jour||"").trim());
-            const db = DAY_ORDER.indexOf((b.jour||"").trim());
-            if (da !== db) return da - db;
-            return parseTimeToMinutes(a.heure) - parseTimeToMinutes(b.heure);
-          });
-
-          html += `<article class="horaires-group"><h3>${key}</h3><ul class="slots">`;
-
-          grouped[key].forEach(r => {
-            const places = parseInt(r.place,10) || 0;
-            let badgeClass = "badge-ok", badgeText = `${places} places`;
-            if (places <= 0) { badgeClass = "badge-full"; badgeText = "Complet"; }
-            else if (places === 1) { badgeClass = "badge-rare"; badgeText = "1 place"; }
-
-            const jour = (r.jour||"").trim();
-            const heure = (r.heure||"").trim();
-
-            html += `<li><strong>${jour} ${heure}</strong> <span class="badge ${badgeClass}">${badgeText}</span></li>`;
-          });
-
-          html += `</ul></article>`;
-        });
-
-        container.innerHTML = html;
-
-        // Masquer le fallback si tout va bien
-        const fb = document.getElementById("horaires-fallback");
-        if (fb) fb.style.display = "none";
+      function parseTimeToMinutes(val){
+        // gère "18:00" ou "18h00"
+        const v = norm(val).replace('h',':');
+        const m = v.match(/^(\d{1,2}):(\d{2})$/);
+        if(!m) return 0;
+        return parseInt(m[1],10)*60 + parseInt(m[2],10);
       }
 
-      // Charge le CSV via PapaParse
+      function getPlaces(o){
+        // accepte "places" OU "place"
+        const p = o.places ?? o.place ?? o.Places ?? o.Place;
+        const n = parseInt(p,10);
+        return isNaN(n) ? 0 : n;
+      }
+
+      function renderHorairesDynamic(rows){
+        const container = document.getElementById("horaires-dynamic");
+        if(!container){ return; }
+
+        // Normalisation des clés (insensible à la casse côté CSV)
+        const normalized = rows.map(r => {
+          const o = {};
+          Object.keys(r).forEach(k => o[norm(k).toLowerCase()] = r[k]);
+          return {
+            jour:   norm(o["jour"]),
+            lieu:   norm(o["lieu"]),
+            adresse:norm(o["adresse"]),
+            cours:  norm(o["cours"]),
+            type:   norm(o["type"]),
+            heure:  norm(o["heure"]).replace('h',':'),
+            places: getPlaces(o),
+            actif:  String(o["actif"]).toLowerCase()==="true"
+          };
+        });
+
+        const actifs = normalized.filter(x => x.actif);
+
+        // Groupage par jour
+        const byDay = {};
+        actifs.forEach(x => {
+          const day = x.jour || "Autres";
+          if(!byDay[day]) byDay[day] = [];
+          byDay[day].push(x);
+        });
+
+        // Tri des jours suivant DAY_ORDER
+        const orderedDays = Object.keys(byDay).sort((a,b) => {
+          const ia = DAY_ORDER.indexOf(a); const ib = DAY_ORDER.indexOf(b);
+          return (ia===-1?99:ia) - (ib===-1?99:ib);
+        });
+
+        // Rendu HTML
+        let html = "";
+        orderedDays.forEach(day => {
+          // Dans chaque jour, regrouper par "lieu — adresse"
+          const group = byDay[day];
+          const byPlace = {};
+          group.forEach(x => {
+            const key = `${x.lieu} — ${x.adresse}`;
+            if(!byPlace[key]) byPlace[key] = [];
+            byPlace[key].push(x);
+          });
+
+          html += `<div class="day-block">`;
+          html += `<h3 class="day-title">${day}</h3>`;
+
+          Object.keys(byPlace).forEach(placeKey => {
+            const items = byPlace[placeKey].sort((a,b) => parseTimeToMinutes(a.heure) - parseTimeToMinutes(b.heure));
+            html += `<div class="place-block">`;
+            html += `<div class="place-title">${placeKey}</div>`;
+            html += `<ul class="event-list">`;
+
+            items.forEach(x => {
+              const p = x.places;
+              let badgeClass = "badge-ok", badgeText = `${p} places`;
+              if(p <= 0){ badgeClass = "badge-full"; badgeText = "Complet"; }
+              else if(p === 1){ badgeClass = "badge-rare"; badgeText = "1 place"; }
+
+              html += `
+                <li class="event-item">
+                  <div class="event-left">
+                    <span class="event-hour">${x.heure}</span>
+                    <div class="event-tags">
+                      ${x.cours ? `<span class="tag">${x.cours}</span>` : ``}
+                      ${x.type  ? `<span class="tag">${x.type}</span>`  : ``}
+                    </div>
+                  </div>
+                  <span class="badge ${badgeClass}">${badgeText}</span>
+                </li>`;
+            });
+
+            html += `</ul></div>`;
+          });
+
+          html += `</div>`;
+        });
+
+        container.innerHTML = html || `<p>Aucune séance active pour le moment.</p>`;
+      }
+
       (function loadSheet(){
-        if (!window.Papa) return; // sécurité
+        if(!window.Papa){ return; }
         Papa.parse(CSV_URL, {
           download: true,
           header: true,
           skipEmptyLines: true,
-          complete: function(res){
-            try {
+          complete: res => {
+            try{
               renderHorairesDynamic(res.data || []);
-            } catch(e) {
-              console.warn("Rendu horaires: erreur, fallback affiché.", e);
+            }catch(e){
+              console.warn("Erreur de rendu horaires:", e);
             }
           },
-          error: function(){
-            console.warn("CSV non chargé — on garde le fallback.");
-          }
+          error: () => console.warn("Échec de chargement CSV")
         });
       })();
     </script>
