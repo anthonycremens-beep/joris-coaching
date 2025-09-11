@@ -2,46 +2,194 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Joris Coaching — Coach sportif à Braine-le-Château</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Pilates & Functional Training à Braine-le-Château : coaching 1:1, cours collectifs à Tubize et coaching privé/entreprise. Posture, mobilité, renforcement, équilibre. Matériel fourni." />
 
-    <!-- Favicon + Open Graph -->
+    <!-- ====== SEO de base ====== -->
+    <title>Joris Coaching — Pilates & Functional Training à Braine-le-Château</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Coach sportif certifié à Braine-le-Château (Brabant wallon). Pilates & Functional Training : 1:1, collectifs à Tubize, coaching privé/entreprise. Posture, mobilité, dos, équilibre. Premier cours collectif offert." />
+    <link rel="canonical" href="https://joris-danniau-coaching.be/" />
+
+    <!-- (optionnel mais OK) petit coup de pouce geo -->
+    <meta name="geo.region" content="BE-WBR" />
+    <meta name="geo.placename" content="Braine-le-Château" />
+
+    <!-- ====== Favicons & Social ====== -->
     <link rel="icon" href="/favicon.ico" />
-    <meta property="og:title" content="Joris Coaching — Coach sportif à Braine-le-Château" />
-    <meta property="og:description" content="Pilates & Functional Training : coaching 1:1, cours collectifs à Tubize, coaching privé/entreprise. Objectifs : remise en forme, dos, équilibre, mobilité, respiration." />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Joris Coaching — Pilates & Functional Training à Braine-le-Château" />
+    <meta property="og:description" content="Pilates & Functional Training : séances 1:1, cours collectifs à Tubize, coaching privé/entreprise. Objectifs : remise en forme, dos, équilibre, mobilité, respiration." />
     <meta property="og:url" content="https://joris-danniau-coaching.be/" />
     <meta property="og:type" content="website" />
-    <!-- Remplace cette image quand tu en as une -->
     <meta property="og:image" content="https://joris-danniau-coaching.be/images/og-cover.jpg" />
+    <meta property="og:locale" content="fr_BE" />
+    <meta name="twitter:card" content="summary_large_image" />
 
+    <!-- ====== CSS ====== -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- Override CSS pour rendre les CTA du hero bien visibles sur mobile -->
+    <!-- ====== JSON-LD : LocalBusiness (SEO local) ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Joris Coaching",
+      "url": "https://joris-danniau-coaching.be/",
+      "image": "https://joris-danniau-coaching.be/images/og-cover.jpg",
+      "description": "Coach sportif à Braine-le-Château : Pilates & Functional Training. Séances 1:1, collectifs à Tubize et coaching privé/entreprise.",
+      "telephone": "+32471625598",
+      "email": "jd.coaching@outlook.com",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "112 Rue Landuyt",
+        "addressLocality": "Braine-le-Château",
+        "addressRegion": "Brabant wallon",
+        "postalCode": "1440",
+        "addressCountry": "BE"
+      },
+      "areaServed": [
+        "Braine-le-Château",
+        "Tubize",
+        "Waterloo",
+        "Nivelles",
+        "Brabant wallon"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/coach_joris/",
+        "https://www.facebook.com/JorisCoaching1440"
+      ]
+    }
+    </script>
+
+    <!-- ====== JSON-LD : WebSite + SearchAction (bonus) ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://joris-danniau-coaching.be/",
+      "name": "Joris Coaching",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://joris-danniau-coaching.be/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- ====== JSON-LD : FAQ (extrait enrichi) ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quels cours proposes-tu ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pilates et Functional Training : en 1:1, en collectifs à Tubize et en coaching privé/entreprise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels objectifs peut-on travailler ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Remise en forme, posture et mobilité, soulagement des douleurs de dos, équilibre, respiration, gestion du stress."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Où se déroulent les séances ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "À domicile, en studio/salle de sport, en entreprise et en cours collectifs à Tubize."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont tes disponibilités ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Matin et après-midi du lundi au samedi. En soirée le mardi et le jeudi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels sont les tarifs ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One-to-One Pilates : 40 € / cours. Collectifs : 10 séances = 135 €, 30 séances = 370 €. Coaching privé sur devis. Premier cours collectif offert."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ====== JSON-LD : lieux & horaires détaillés ====== -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"SportsActivityLocation",
+      "name":"Joris Coaching - Cours / Coaching",
+      "url":"https://joris-danniau-coaching.be/",
+      "telephone":"+32 471 62 55 98",
+      "email":"jd.coaching@outlook.com",
+      "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"112 Rue Landuyt",
+        "postalCode":"1440",
+        "addressLocality":"Braine-le-Château",
+        "addressCountry":"BE"
+      },
+      "department":[
+        {
+          "@type":"Place",
+          "name":"École Saint-Joseph (Tubize)",
+          "address":{"@type":"PostalAddress","streetAddress":"Grand'Place 31","postalCode":"1480","addressLocality":"Tubize","addressCountry":"BE"},
+          "openingHoursSpecification":[
+            {"@type":"OpeningHoursSpecification","dayOfWeek":"https://schema.org/Wednesday","opens":"18:00","closes":"19:00"},
+            {"@type":"OpeningHoursSpecification","dayOfWeek":"https://schema.org/Wednesday","opens":"19:00","closes":"20:00"},
+            {"@type":"OpeningHoursSpecification","dayOfWeek":"https://schema.org/Wednesday","opens":"20:00","closes":"21:00"}
+          ]
+        },
+        {
+          "@type":"Place",
+          "name":"Stade Leburton (Tubize)",
+          "address":{"@type":"PostalAddress","streetAddress":"Allée des Sports 5","postalCode":"1480","addressLocality":"Tubize","addressCountry":"BE"},
+          "openingHoursSpecification":[
+            {"@type":"OpeningHoursSpecification","dayOfWeek":"https://schema.org/Saturday","opens":"08:45","closes":"09:45"}
+          ]
+        }
+      ],
+      "sameAs":[
+        "https://www.instagram.com/coach_joris/",
+        "https://www.facebook.com/JorisCoaching1440"
+      ]
+    }
+    </script>
+
+    <!-- ====== Overrides UI ====== -->
     <style>
       @media screen and (max-width: 736px) {
-        #intro { 
-          padding: 3.5rem 1.25rem 1.5rem !important; /* remonte les CTA */
-        }
-        #intro h1 { 
-          margin-bottom: 0.5rem !important;
-        }
-        #intro p {
-          margin-bottom: 0.75rem !important;
-        }
-        #intro .actions {
-          display: flex !important;
-          flex-direction: column;
-          gap: 0.75rem;
-          align-items: stretch;
-        }
-        #intro .actions .button {
-          width: 100%;
-        }
+        #intro { padding: 3.5rem 1.25rem 1.5rem !important; }
+        #intro h1 { margin-bottom: 0.5rem !important; }
+        #intro p { margin-bottom: 0.75rem !important; }
+        #intro .actions { display: flex !important; flex-direction: column; gap: 0.75rem; align-items: stretch; }
+        #intro .actions .button { width: 100%; }
       }
+      /* Styles horaires */
+      .slots { list-style: none; margin: .5rem 0 1rem; padding: 0; }
+      .slots li { display:flex; align-items:center; justify-content:space-between; padding:.5rem .75rem; border:1px solid rgba(255,255,255,.12); border-radius:.5rem; margin-bottom:.5rem; }
+      .badge { font-size:.9rem; padding:.2rem .5rem; border-radius:.35rem; white-space:nowrap; color:#fff; }
+      .badge-ok   { background:#1e824c; }   /* vert */
+      .badge-rare { background:#b57900; }   /* ambre */
+      .badge-full { background:#8a2b2b; }   /* rouge */
+      .note{opacity:.85;}
     </style>
   </head>
+
   <body class="is-preload">
     <div id="wrapper" class="fade-in">
 
@@ -65,6 +213,7 @@
       <nav id="nav">
         <ul class="links">
           <li class="active"><a href="#services">Programmes</a></li>
+          <li><a href="#horaires">Horaires</a></li>
           <li><a href="#method">Méthode</a></li>
           <li><a href="#about">À propos</a></li>
           <li><a href="#testimonials">Avis</a></li>
@@ -77,10 +226,9 @@
         </ul>
       </nav>
 
-      <!-- Main -->
+      <!-- ====== Main ====== -->
       <div id="main">
-
-        <!-- Services (Programmes réels) -->
+        <!-- Services -->
         <section id="services" class="posts">
           <article>
             <header><h2>Pilates — One-to-One</h2></header>
@@ -88,7 +236,7 @@
             <ul class="actions special"><li><a href="#contact" class="button">Je commence</a></li></ul>
           </article>
 
-        <article>
+          <article>
             <header><h2>Functional Training</h2></header>
             <p>Un entraînement complet qui développe la force, la mobilité, l’équilibre et le cardio. Le but : un corps plus efficace et des gestes du quotidien plus fluides, au travail comme en famille.</p>
             <ul class="actions special"><li><a href="#contact" class="button">Parler du programme</a></li></ul>
@@ -101,10 +249,72 @@
           </article>
 
           <article>
-  <header><h2>Coaching privé & entreprise</h2></header>
-  <p>Un accompagnement exclusif, à domicile, en studio ou en salle de sport, ou directement en entreprise. Idéal pour bénéficier de séances sur mesure adaptées à ton rythme et à ton environnement.</p>
-  <ul class="actions special"><li><a href="#contact" class="button">Demander un devis</a></li></ul>
-</article>
+            <header><h2>Coaching privé & entreprise</h2></header>
+            <p>Un accompagnement exclusif, à domicile, en studio ou en salle de sport, ou directement en entreprise. Idéal pour bénéficier de séances sur mesure adaptées à ton rythme et à ton environnement.</p>
+            <ul class="actions special"><li><a href="#contact" class="button">Demander un devis</a></li></ul>
+          </article>
+        </section>
+
+        <!-- HORAIRES & DISPONIBILITÉS -->
+        <section id="horaires" class="post">
+          <header class="major">
+            <h2>Horaires & disponibilités</h2>
+            <p>Mises à jour manuelles — contacte-moi pour la dernière dispo en direct.</p>
+          </header>
+
+          <article itemscope itemtype="https://schema.org/ExerciseGym">
+            <h3 itemprop="name">Cours collectifs — Tubize</h3>
+
+            <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+              <strong>École Saint-Joseph</strong> —
+              <span itemprop="streetAddress">Grand'Place 31</span>,
+              <span itemprop="postalCode">1480</span> <span itemprop="addressLocality">Tubize</span>
+            </p>
+            <ul class="slots">
+              <li>
+                <strong>Mercredi 18:00</strong>
+                <span class="badge badge-rare">1 place</span>
+                <meta itemprop="openingHours" content="We 18:00-19:00">
+              </li>
+              <li>
+                <strong>Mercredi 19:00</strong>
+                <span class="badge badge-ok">3 places</span>
+                <meta itemprop="openingHours" content="We 19:00-20:00">
+              </li>
+              <li>
+                <strong>Mercredi 20:00</strong>
+                <span class="badge badge-full">Complet</span>
+                <meta itemprop="openingHours" content="We 20:00-21:00">
+              </li>
+            </ul>
+
+            <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" style="margin-top:1rem">
+              <strong>Stade Leburton</strong> —
+              <span itemprop="streetAddress">Allée des Sports 5</span>,
+              <span itemprop="postalCode">1480</span> <span itemprop="addressLocality">Tubize</span>
+            </p>
+            <ul class="slots">
+              <li>
+                <strong>Samedi 08:45</strong>
+                <span class="badge badge-ok">2 places</span>
+                <meta itemprop="openingHours" content="Sa 08:45-09:45">
+              </li>
+            </ul>
+          </article>
+
+          <article itemscope itemtype="https://schema.org/Place" style="margin-top:2rem">
+            <h3>Studio — Braine-le-Château</h3>
+            <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+              <span itemprop="streetAddress">112 Rue Landuyt</span>,
+              <span itemprop="postalCode">1440</span> <span itemprop="addressLocality">Braine-le-Château</span>
+            </p>
+            <p class="note">Note planning : le <strong>jeudi soir</strong> et le <strong>samedi</strong>, les cours peuvent commencer à <strong>:30</strong> (et non à l’heure pile).</p>
+          </article>
+
+          <ul class="actions" style="margin-top:1.5rem">
+            <li><a href="#contact" class="button primary">Réserver un créneau</a></li>
+            <li><a href="tel:+32471625598" class="button icon solid fa-phone">Appeler</a></li>
+          </ul>
         </section>
 
         <!-- Méthode -->
@@ -141,14 +351,13 @@
             <header><h2>“Suivi au top”</h2></header>
             <p>« Même à distance, je me sentais coaché et motivé. » — L.</p>
           </article>
-          <!-- NOUVEL AVIS pour compléter la grille 2x2 -->
           <article>
             <header><h2>“Posture & mobilité”</h2></header>
             <p>« J’ai gagné en souplesse et en stabilité, mon dos me remercie. » — J.</p>
           </article>
         </section>
 
-        <!-- FAQ (toutes les données du formulaire) -->
+        <!-- FAQ -->
         <section id="faq" class="post">
           <header class="major"><h2>FAQ</h2></header>
 
@@ -191,13 +400,13 @@
           </ul>
 
           <h3>Disponibilités</h3>
-          <p><strong>Matin & après-midi</strong> : lundi → samedi &nbsp;•&nbsp; <strong>Soir</strong> : mardi & jeudi</p>
+          <p><strong>Matin & après-midi</strong> : lundi → samedi • <strong>Soir</strong> : mardi & jeudi</p>
 
           <h3>Fréquence conseillée</h3>
           <ul>
-            <li>1x / semaine = déjà bien</li>
-            <li>2x / semaine = mieux</li>
-            <li>3x / semaine = optimal</li>
+            <li>1× / semaine = déjà bien</li>
+            <li>2× / semaine = mieux</li>
+            <li>3× / semaine = optimal</li>
           </ul>
 
           <h3>Tarifs</h3>
@@ -210,7 +419,7 @@
           <h3>Conditions & bonus</h3>
           <ul>
             <li>1er cours collectif gratuit</li>
-            <li>1er cours One-to-One à -50 %</li>
+            <li>1er cours One-to-One à −50 %</li>
             <li>Matériel fourni</li>
             <li>Abonnements sans durée imposée</li>
             <li>Prévenir en cas d’absence sinon séance due</li>
@@ -218,23 +427,19 @@
             <li>Devis/facture possibles</li>
           </ul>
         </section>
-
       </div><!-- /Main -->
 
       <!-- Footer / Contact + Merci -->
       <footer id="footer">
-
-        <!-- Bloc “merci” affiché après envoi -->
         <section id="merci" style="display:none; text-align:center; padding:2rem 1rem;">
           <h2>Merci pour ton message ✅</h2>
           <p>Je te recontacte très vite pour fixer un premier échange.</p>
           <p><a class="button" href="#intro">Retour en haut</a></p>
         </section>
 
-        <!-- Contact / Booking (Netlify Form) -->
+        <!-- Contact -->
         <section id="contact">
           <h2>Contact / Booking</h2>
-          <!-- action vers la même page avec ancre #merci -->
           <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#merci">
             <input type="hidden" name="form-name" value="contact" />
             <p style="display:none"><label>Ne pas remplir <input name="bot-field" /></label></p>
@@ -278,7 +483,7 @@
         <section class="split contact">
           <section class="alt">
             <h3>Zone</h3>
-            <p>Braine-le-Château & environs</p>
+            <p>Braine-le-Château & environs (Tubize • Waterloo • Nivelles • Brabant wallon)</p>
           </section>
           <section>
             <h3>Téléphone</h3>
