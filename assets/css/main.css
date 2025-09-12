@@ -3230,7 +3230,7 @@ input, select, textarea {
 
 /* ===== Fond : overlay + dégradé + photo (optimisé) ===== */
 #wrapper > .bg {
-  position: absolute;              /* était absolute (on garde) */
+  position: absolute;              /* on garde */
   top: 0;
   left: 0;
   width: 100%;
@@ -3240,12 +3240,13 @@ input, select, textarea {
   background-image:
     url("../../images/overlay.png"),
     linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("../../images/bg-fitness.jpg");
-  /* overlay, gradient, photo */
-  background-size: auto, auto, cover !important;
-  background-position: center, center, top center !important;
+    url("../../images/bg-fitness.jpg");   /* overlay, gradient, photo */
+
+  /* ⬇️ changements */
+  background-size: auto, auto, 100% auto;          /* largeur = 100%, pas de zoom */
+  background-position: center, center, top center;  /* ancrée en haut */
   background-repeat: repeat, no-repeat, no-repeat;
-  background-attachment: scroll, scroll, scroll !important;
+  background-attachment: scroll, scroll, scroll;    /* pas de fixed (évite les saccades) */
 
   /* perf */
   will-change: transform;
@@ -3287,11 +3288,11 @@ body.is-preload #wrapper.fade-in:before {
   opacity: 1;
 }
 
-/* Mobile portrait : on reste en cover, plus fluide qu’un zoom 175% */
+/* Mobile portrait : largeur 100% au lieu de zoom */
 @media screen and (orientation: portrait) {
   #wrapper > .bg {
-    background-size: auto, auto, cover !important;
-    background-position: center, center, top center !important;
+    background-size: auto, auto, 100% auto;     /* largeur = 100% */
+    background-position: center, center, top center;  /* ancrée en haut */
   }
 }
 
@@ -4701,4 +4702,5 @@ body.is-preload #wrapper.fade-in:before {
 		}
 
 	}
+
 
