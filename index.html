@@ -201,6 +201,20 @@
       .badge-rare { background:#b57900; }   /* ambre */
       .badge-full { background:#8a2b2b; }   /* rouge */
       .note{opacity:.85;}
+/* Icônes réseaux avec images (remplace Font Awesome) */
+.icons.social { display:flex; gap:.85rem; align-items:center; }
+.icons.social li { list-style:none; }
+.icons.social li a { display:inline-flex; border:0; padding:0; line-height:0; }
+.icons.social img { width:26px; height:26px; object-fit:contain; transition:transform .15s ease; }
+
+/* Haut du site (fond sombre) */
+#nav .icons.social img { width:26px; height:26px; }
+
+/* Bas du site (fond clair) – un peu plus grand pour l’équilibre visuel */
+#footer .icons.social img { width:32px; height:32px; }
+
+/* Petit hover propre */
+.icons.social li a:hover img { transform:scale(1.06); }
     </style>
 
     <!-- ====== PapaParse (lecture CSV) ====== -->
@@ -241,10 +255,18 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <ul class="icons">
-          <li><a href="https://www.instagram.com/coach_joris/" target="_blank" rel="noopener" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-          <li><a href="https://www.facebook.com/JorisCoaching1440" target="_blank" rel="noopener" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-        </ul>
+       <ul class="icons social">
+  <li>
+    <a href="https://www.instagram.com/coach_joris/" target="_blank" rel="noopener">
+      <img src="images/Instagram_Glyph_Gradient.png" alt="Instagram" />
+    </a>
+  </li>
+  <li>
+    <a href="https://www.facebook.com/JorisCoaching1440" target="_blank" rel="noopener">
+      <img src="images/Facebook_Logo_Secondary.png" alt="Facebook" />
+    </a>
+  </li>
+</ul>
       </nav>
 
       <!-- ====== Main ====== -->
@@ -473,10 +495,18 @@
           </section>
           <section>
             <h3>Réseaux</h3>
-            <ul class="icons alt">
-              <li><a href="https://www.instagram.com/coach_joris/" target="_blank" rel="noopener" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-              <li><a href="https://www.facebook.com/JorisCoaching1440" target="_blank" rel="noopener" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-            </ul>
+<ul class="icons social">
+  <li>
+    <a href="https://www.instagram.com/coach_joris/" target="_blank" rel="noopener">
+      <img src="images/Instagram_Glyph_Gradient.png" alt="Instagram" />
+    </a>
+  </li>
+  <li>
+    <a href="https://www.facebook.com/JorisCoaching1440" target="_blank" rel="noopener">
+      <img src="images/Facebook_Logo_Secondary.png" alt="Facebook" />
+    </a>
+  </li>
+</ul>
           </section>
           <section>
             <h3>TVA</h3>
@@ -637,4 +667,5 @@
     </script>
   </body>
 </html>
+
 
