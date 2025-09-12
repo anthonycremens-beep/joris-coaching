@@ -4639,18 +4639,21 @@ input, select, textarea {
 	}
 /* ===== Fond global fixé (remplace l’ancien bg du wrapper) ===== */
 html, body { background: #212931; }
+body { position: relative; } /* crée le contexte pour z-index */
 
 body::before {
   content: "";
-  position: fixed; inset: 0;               /* occupe tout l'écran */
-  z-index: -1;                              /* derrière tout le contenu */
+  position: fixed;
+  inset: 0;                     /* occupe tout l'écran */
+  z-index: 0;                   /* sous #wrapper (qui est z-index:1) */
+  pointer-events: none;
 
   /* couches : texture overlay + léger assombrissement + fondu bas + photo */
   background:
-    url("images/overlay.png") repeat,
+    url("../../images/overlay.png") repeat,
     linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,.10)),
     linear-gradient(to bottom, rgba(33,41,49,0) 60%, rgba(33,41,49,.85) 90%, #1e252d 100%),
-    url("images/bg-fitness.jpg");
+    url("../../images/bg-fitness.jpg");
 
   background-size:
     auto,
@@ -4667,7 +4670,7 @@ body::before {
   background-repeat:
     repeat, no-repeat, no-repeat, no-repeat;
 
-  background-attachment: fixed;             /* vrai fond fixé */
+  background-attachment: fixed; /* fond réellement fixé */
   will-change: transform;
 }
 
