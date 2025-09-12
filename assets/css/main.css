@@ -3228,25 +3228,44 @@ input, select, textarea {
   overflow: hidden;
 }
 
-/* ===== Fond : overlay + dégradé + photo (optimisé) ===== */
+/* ===== Fond : overlay + assombrissement + fondu bas + photo ===== */
 #wrapper > .bg {
-  position: absolute;              /* on garde */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 
   background-color: #212931;
+  /* 1) overlay  2) léger assombrissement  3) fondu vers le bas  4) photo */
   background-image:
     url("../../images/overlay.png"),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url("../../images/bg-fitness.jpg");   /* overlay, gradient, photo */
+    linear-gradient(0deg, rgba(0,0,0,0.10), rgba(0,0,0,0.10)),
+    linear-gradient(to bottom, rgba(33,41,49,0) 60%, rgba(33,41,49,0.85) 90%, #1e252d 100%),
+    url("../../images/bg-fitness.jpg");
 
-  /* ⬇️ changements */
-  background-size: auto, auto, 100% auto;          /* largeur = 100%, pas de zoom */
-  background-position: center, center, top center;  /* ancrée en haut */
-  background-repeat: repeat, no-repeat, no-repeat;
-  background-attachment: scroll, scroll, scroll;    /* pas de fixed (évite les saccades) */
+  /* tailles/positions pour chaque couche */
+  background-size:
+    auto,          /* overlay (se répète) */
+    100% 100%,     /* assombrissement plein écran */
+    100% 100%,     /* fondu plein écran */
+    100% auto;     /* photo : largeur = 100%, pas de zoom vertical */
+
+  background-position:
+    center,        /* overlay */
+    center,        /* assombrissement */
+    top,           /* fondu */
+    top center;    /* photo (ancrée en haut) */
+
+  background-repeat:
+    repeat,        /* overlay */
+    no-repeat,
+    no-repeat,
+    no-repeat;
+
+  /* pas de fixed pour éviter les saccades */
+  background-attachment:
+    scroll, scroll, scroll, scroll;
 
   /* perf */
   will-change: transform;
@@ -3255,9 +3274,9 @@ input, select, textarea {
   z-index: -1;
 }
 
-/* ===== Supprime l'effet "fixed" qui fait saccader ===== */
+/* ===== Supprime l'effet "fixed" qui faisait saccader ===== */
 #wrapper > .bg.fixed {
-  position: absolute !important;   /* au lieu de fixed */
+  position: absolute !important;
   width: 100% !important;
   height: 100% !important;
 }
@@ -3288,13 +3307,38 @@ body.is-preload #wrapper.fade-in:before {
   opacity: 1;
 }
 
-/* Mobile portrait : largeur 100% au lieu de zoom */
+/* ===== Mobile (portrait) : mêmes 4 couches, largeur 100% ===== */
 @media screen and (orientation: portrait) {
   #wrapper > .bg {
-    background-size: auto, auto, 100% auto;     /* largeur = 100% */
-    background-position: center, center, top center;  /* ancrée en haut */
+    background-size:
+      auto,
+      100% 100%,
+      100% 100%,
+      100% auto;
+    background-position:
+      center,
+      center,
+      top,
+      top center;
   }
 }
+
+/* (Optionnel) grands écrans très hauts : recadrer un peu la photo
+@media screen and (min-aspect-ratio: 16/10) and (min-height: 900px) {
+  #wrapper > .bg {
+    background-size:
+      auto,
+      100% 100%,
+      100% 100%,
+      cover;
+    background-position:
+      center,
+      center,
+      top,
+      50% 30%;
+  }
+}
+*/
 
 /* Intro */
 
@@ -4702,5 +4746,6 @@ body.is-preload #wrapper.fade-in:before {
 		}
 
 	}
+
 
 
