@@ -455,45 +455,47 @@
 
         <!-- Contact -->
         <section id="contact">
-          <h2>Contact / Booking</h2>
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#merci">
-            <input type="hidden" name="form-name" value="contact" />
-            <p style="display:none"><label>Ne pas remplir <input name="bot-field" /></label></p>
+  <h2>Contact / Booking</h2>
 
-            <div class="fields">
-              <div class="field">
-                <label for="name">Nom</label>
-                <input type="text" name="name" id="name" required />
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required />
-              </div>
-              <div class="field">
-                <label for="phone">Téléphone (optionnel)</label>
-                <input type="tel" name="phone" id="phone" />
-              </div>
-              <div class="field">
-                <label for="goal">Objectif</label>
-                <select name="goal" id="goal">
-                  <option>Perte de poids</option>
-                  <option>Remise en forme</option>
-                  <option>Reprise après blessure</option>
-                  <option>Autre</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="4" placeholder="Parle-moi de ton objectif et de tes dispos…"></textarea>
-              </div>
-            </div>
+  <!-- Formspree -->
+  <form action="https://formspree.io/f/xandkopp" method="POST">
+    <!-- après envoi, on revient sur la page avec #merci affiché -->
+    <input type="hidden" name="_redirect" value="https://joris-danniau-coaching.be/#merci" />
 
-            <ul class="actions">
-              <li><button type="submit" class="button primary">Envoyer</button></li>
-              <li><a class="button" href="https://wa.me/32471625598" target="_blank" rel="noopener">WhatsApp</a></li>
-            </ul>
-          </form>
-        </section>
+    <div class="fields">
+      <div class="field">
+        <label for="name">Nom</label>
+        <input type="text" name="name" id="name" required />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div class="field">
+        <label for="phone">Téléphone (optionnel)</label>
+        <input type="tel" name="phone" id="phone" />
+      </div>
+      <div class="field">
+        <label for="goal">Objectif</label>
+        <select name="goal" id="goal">
+          <option>Perte de poids</option>
+          <option>Remise en forme</option>
+          <option>Reprise après blessure</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="4" placeholder="Parle-moi de ton objectif et de tes dispos…"></textarea>
+      </div>
+    </div>
+
+    <ul class="actions">
+      <li><button type="submit" class="button primary">Envoyer</button></li>
+      <li><a class="button" href="https://wa.me/32471625598" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+  </form>
+</section>
 
         <!-- Coordonnées -->
         <section class="split contact">
@@ -683,6 +685,7 @@
     </script>
   </body>
 </html>
+
 
 
 
