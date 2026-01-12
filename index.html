@@ -3,43 +3,35 @@
   <head>
     <meta charset="utf-8" />
 
-    <!-- ====== SEO de base ====== -->
     <title>Joris Coaching — Pilates & Functional Training à Braine-le-Château</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="description" content="Coach sportif certifié à Braine-le-Château (Brabant wallon). Pilates & Functional Training : 1:1, collectifs à Tubize, coaching privé/entreprise. Posture, mobilité, dos, équilibre. Premier cours collectif offert." />
     <link rel="canonical" href="https://joris-danniau-coaching.be/" />
 
-    <!-- (optionnel mais OK) petit coup de pouce geo -->
     <meta name="geo.region" content="BE-WBR" />
     <meta name="geo.placename" content="Braine-le-Château" />
 
-    <!-- ====== Favicons & Social ====== -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:title" content="Joris Coaching — Pilates & Functional Training à Braine-le-Château" />
     <meta property="og:description" content="Pilates & Functional Training : séances 1:1, cours collectifs à Tubize, coaching privé/entreprise. Objectifs : remise en forme, dos, équilibre, mobilité, respiration." />
     <meta property="og:url" content="https://joris-danniau-coaching.be/" />
     <meta property="og:type" content="website" />
-    <!-- Open Graph -->
-<meta property="og:image" content="https://www.joris-danniau-coaching.be/images/og-cover.jpg" />
+    <meta property="og:image" content="https://www.joris-danniau-coaching.be/images/og-cover.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Joris Coaching – Pilates & Functional Training à Braine-le-Château" />
 
-<!-- Twitter (X) -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.joris-danniau-coaching.be/images/og-cover.jpg" />
     <meta property="og:locale" content="fr_BE" />
     <meta name="twitter:card" content="summary_large_image" />
 
-<!-- Favicon classique -->
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
 
-    <!-- ====== CSS ====== -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- ====== JSON-LD : LocalBusiness (SEO local) ====== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +65,6 @@
     }
     </script>
 
-    <!-- ====== JSON-LD : WebSite + SearchAction (bonus) ====== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -88,7 +79,6 @@
     }
     </script>
 
-    <!-- ====== JSON-LD : FAQ (extrait enrichi) ====== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -138,7 +128,6 @@
     }
     </script>
 
-    <!-- ====== JSON-LD : lieux & horaires détaillés ====== -->
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
@@ -181,7 +170,6 @@
     }
     </script>
 
-    <!-- ====== Overrides UI ====== -->
     <style>
       @media screen and (max-width: 736px) {
         #intro { padding: 3.5rem 1.25rem 1.5rem !important; }
@@ -233,18 +221,17 @@
 .icons.social li a:hover img { transform:scale(1.06); }
     </style>
 
-    <!-- ====== PapaParse (lecture CSV) ====== -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script>
-      /* URL publique CSV du Google Sheet */
-      const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTYSz-UNdUZXgZFdunl7bHpgZXU3NBNWfWa-5krmWyw1NuoO5D63v_0Bx_mHCCqxSKeU53ljU94j1H/pub?gid=0&single=true&output=csv";
+      /* URL publique CSV des deux onglets */
+      const CSV_URL_HORAIRES = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTYSz-UNdUZXgZFdunl7bHpgZXU3NBNWfWa-5krmWyw1NuoO5D63v_0Bx_mHCCqxSKeU53ljU94j1H/pub?gid=0&single=true&output=csv";
+      const CSV_URL_PRIX = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTYSz-UNdUZXgZFdunl7bHpgZXU3NBNWfWa-5krmWyw1NuoO5D63v_0Bx_mHCCqxSKeU53ljU94j1H/pub?gid=288580515&single=true&output=csv";
     </script>
   </head>
 
   <body class="is-preload">
     <div id="wrapper" class="fade-in">
 
-      <!-- HERO -->
       <div id="intro">
         <h1>Joris Coaching</h1>
         <p>Coach sportif — résultats visibles, méthode simple</p>
@@ -255,12 +242,10 @@
         </ul>
       </div>
 
-      <!-- Header -->
       <header id="header">
         <a href="#intro" class="logo">Joris Coaching</a>
       </header>
 
-      <!-- Nav -->
       <nav id="nav">
         <ul class="links">
           <li class="active"><a href="#services">Programmes</a></li>
@@ -271,7 +256,7 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-       <ul class="icons social">
+      <ul class="icons social">
   <li>
     <a href="https://www.instagram.com/coach_joris/" target="_blank" rel="noopener">
       <img src="images/s-ig.png" alt="Instagram" />
@@ -285,9 +270,7 @@
 </ul>
       </nav>
 
-      <!-- ====== Main ====== -->
       <div id="main">
-        <!-- Services -->
         <section id="services" class="posts">
           <article>
             <header><h2>Pilates </h2></header>
@@ -314,16 +297,13 @@
           </article>
         </section>
 
-        <!-- HORAIRES & DISPONIBILITÉS -->
         <section id="horaires" class="post">
           <header class="major">
             <h2>Horaires & disponibilités</h2>
           </header>
 
-          <!-- Contenu dynamique (rempli depuis le Sheet) -->
           <div id="horaires-dynamic"></div>
 
-          <!-- Fallback si CSV KO (option, peut être retiré si tu veux) -->
           <div id="horaires-fallback" style="display:none;"></div>
 
           <ul class="actions" style="margin-top:1.5rem">
@@ -332,7 +312,6 @@
           </ul>
         </section>
 
-        <!-- Méthode -->
         <section id="method" class="post featured">
           <header class="major">
             <h2>Ma méthode en 4 étapes</h2>
@@ -346,13 +325,11 @@
           </ol>
         </section>
 
-        <!-- À propos -->
         <section id="about" class="post">
           <header class="major"><h2>À propos de Joris</h2></header>
           <p>Coach attentif et orienté résultats. J’aide à reprendre confiance, à bouger mieux et à obtenir des progrès visibles sans prise de tête. Explications claires, accompagnement humain, objectifs réalistes.</p>
         </section>
 
-        <!-- Avis -->
         <section id="testimonials" class="posts">
           <article>
             <header><h2>“Résultats visibles”</h2></header>
@@ -372,7 +349,6 @@
           </article>
         </section>
 
-        <!-- FAQ -->
         <section id="faq" class="post">
           <header class="major"><h2>FAQ</h2></header>
 
@@ -425,9 +401,9 @@
           </ul>
 
           <h3>Tarifs</h3>
-          <ul>
-            <li><strong>One-to-One Pilates :</strong> 40 € / cours</li>
-            <li><strong>Collectifs (Pilates & Functional Training) :</strong> 10 séances = 135 €, 30 séances = 370 €</li>
+          <ul id="tarifs-list">
+            <li><strong>One-to-One Pilates :</strong> <span id="price-one-to-one">40 € / cours</span></li>
+            <li><strong>Collectifs (Pilates & Functional Training) :</strong> <span id="price-collectifs">10 séances = 135 €, 30 séances = 370 €</span></li>
             <li><strong>Coaching privé :</strong> sur devis</li>
           </ul>
 
@@ -442,23 +418,17 @@
             <li>Devis/facture possibles</li>
           </ul>
         </section>
-      </div><!-- /Main -->
-
-      <!-- Footer / Contact + Merci -->
-      <footer id="footer">
+      </div><footer id="footer">
         <section id="merci" style="display:none; text-align:center; padding:2rem 1rem;">
           <h2>Merci pour ton message ✅</h2>
           <p>Je te recontacte très vite pour fixer un premier échange.</p>
           <p><a class="button" href="#intro">Retour en haut</a></p>
         </section>
 
-        <!-- Contact -->
         <section id="contact">
   <h2>Contact / Booking</h2>
 
-  <!-- Formspree -->
   <form action="https://formspree.io/f/xandkopp" method="POST">
-    <!-- après envoi, on revient sur la page avec #merci affiché -->
     <input type="hidden" name="_redirect" value="https://joris-danniau-coaching.be/#merci" />
 
     <div class="fields">
@@ -496,7 +466,6 @@
   </form>
 </section>
 
-        <!-- Coordonnées -->
         <section class="split contact">
           <section class="alt">
             <h3>Zone</h3>
@@ -537,7 +506,6 @@
       </div>
     </div>
 
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -546,7 +514,6 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- Affiche #merci si l’URL contient #merci -->
     <script>
       (function () {
         if (window.location.hash === '#merci') {
@@ -559,14 +526,12 @@
       })();
     </script>
 
-    <!-- ====== Chargement dynamique des horaires depuis Google Sheet (groupé PAR JOUR) ====== -->
     <script>
       const DAY_ORDER = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
 
       function norm(s){ return (s||"").toString().trim(); }
 
       function parseTimeToMinutes(val){
-        // gère "18:00" ou "18h00"
         const v = norm(val).replace('h',':');
         const m = v.match(/^(\d{1,2}):(\d{2})$/);
         if(!m) return 0;
@@ -574,17 +539,16 @@
       }
 
       function getPlaces(o){
-        // accepte "places" OU "place"
         const p = o.places ?? o.place ?? o.Places ?? o.Place;
         const n = parseInt(p,10);
         return isNaN(n) ? 0 : n;
       }
 
+      // --- Rendu des Horaires ---
       function renderHorairesDynamic(rows){
         const container = document.getElementById("horaires-dynamic");
         if(!container){ return; }
 
-        // Normalisation des clés (insensible à la casse côté CSV)
         const normalized = rows.map(r => {
           const o = {};
           Object.keys(r).forEach(k => o[norm(k).toLowerCase()] = r[k]);
@@ -601,8 +565,6 @@
         });
 
         const actifs = normalized.filter(x => x.actif);
-
-        // Groupage par jour
         const byDay = {};
         actifs.forEach(x => {
           const day = x.jour || "Autres";
@@ -610,16 +572,13 @@
           byDay[day].push(x);
         });
 
-        // Tri des jours suivant DAY_ORDER
         const orderedDays = Object.keys(byDay).sort((a,b) => {
           const ia = DAY_ORDER.indexOf(a); const ib = DAY_ORDER.indexOf(b);
           return (ia===-1?99:ia) - (ib===-1?99:ib);
         });
 
-        // Rendu HTML
         let html = "";
         orderedDays.forEach(day => {
-          // Dans chaque jour, regrouper par "lieu — adresse"
           const group = byDay[day];
           const byPlace = {};
           group.forEach(x => {
@@ -655,30 +614,48 @@
                   <span class="badge ${badgeClass}">${badgeText}</span>
                 </li>`;
             });
-
             html += `</ul></div>`;
           });
-
           html += `</div>`;
         });
-
         container.innerHTML = html || `<p>Aucune séance active pour le moment.</p>`;
       }
 
-      (function loadSheet(){
+      // --- Mise à jour des Prix dans la section FAQ ---
+      function updatePricesDynamic(rows){
+        rows.forEach(r => {
+          const cours = norm(r.Cours || r.cours).toLowerCase();
+          const prix = norm(r.Prix || r.prix || r.Tarif || r.tarif);
+          
+          if(cours.includes("one-to-one") || cours.includes("pilates solo")){
+            const el = document.getElementById("price-one-to-one");
+            if(el) el.textContent = prix;
+          }
+          if(cours.includes("collectif")){
+            const el = document.getElementById("price-collectifs");
+            if(el) el.textContent = prix;
+          }
+        });
+      }
+
+      // --- Chargement des deux sources ---
+      (function loadSheets(){
         if(!window.Papa){ return; }
-        Papa.parse(CSV_URL, {
+        
+        // Charger Horaires
+        Papa.parse(CSV_URL_HORAIRES, {
           download: true,
           header: true,
           skipEmptyLines: true,
-          complete: res => {
-            try{
-              renderHorairesDynamic(res.data || []);
-            }catch(e){
-              console.warn("Erreur de rendu horaires:", e);
-            }
-          },
-          error: () => console.warn("Échec de chargement CSV")
+          complete: res => renderHorairesDynamic(res.data || [])
+        });
+
+        // Charger Prix
+        Papa.parse(CSV_URL_PRIX, {
+          download: true,
+          header: true,
+          skipEmptyLines: true,
+          complete: res => updatePricesDynamic(res.data || [])
         });
       })();
     </script>
