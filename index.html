@@ -401,11 +401,12 @@
           </ul>
 
           <h3>Tarifs</h3>
-          <ul id="tarifs-list">
-            <li><strong>One-to-One Pilates :</strong> <span id="price-one-to-one">40 € / cours</span></li>
-            <li><strong>Collectifs (Pilates & Functional Training) :</strong> <span id="price-collectifs">10 séances = 135 €, 30 séances = 370 €</span></li>
-            <li><strong>Coaching privé :</strong> sur devis</li>
-          </ul>
+<ul id="tarifs-list">
+  <li><strong>One-to-One Pilates :</strong> <span id="price-one-to-one">40 € / cours</span></li>
+  <li><strong>Collectifs (10 séances) :</strong> <span id="price-collectif-10">135 €</span></li>
+  <li><strong>Collectifs (30 séances) :</strong> <span id="price-collectif-30">370 €</span></li>
+  <li><strong>Coaching privé :</strong> sur devis</li>
+</ul>
 
           <h3>Conditions & bonus</h3>
           <ul>
@@ -621,19 +622,26 @@
         container.innerHTML = html || `<p>Aucune séance active pour le moment.</p>`;
       }
 
-      // --- Mise à jour des Prix dans la section FAQ ---
+      // --- Mise à jour des Prix depuis l'onglet Prix ---
       function updatePricesDynamic(rows){
         rows.forEach(r => {
-          const cours = norm(r.Cours || r.cours).toLowerCase();
-          const prix = norm(r.Prix || r.prix || r.Tarif || r.tarif);
-          
-          if(cours.includes("one-to-one") || cours.includes("pilates solo")){
+          // On nettoie les textes pour éviter les erreurs de majuscules ou d'espaces
+          const service = (r.Service || r.service || "").toString().trim().toLowerCase();
+          const prix = (r.Prix || r.prix || "").toString().trim();
+
+          if (!prix) return; // On ignore si la case prix est vide
+
+          if (service === "one-to-one") {
             const el = document.getElementById("price-one-to-one");
-            if(el) el.textContent = prix;
-          }
-          if(cours.includes("collectif")){
-            const el = document.getElementById("price-collectifs");
-            if(el) el.textContent = prix;
+            if (el) el.textContent = prix;
+          } 
+          else if (service === "collectif-10") {
+            const el = document.getElementById("price-collectif-10");
+            if (el) el.textContent = prix;
+          } 
+          else if (service === "collectif-30") {
+            const el = document.getElementById("price-collectif-30");
+            if (el) el.textContent = prix;
           }
         });
       }
@@ -661,3 +669,4 @@
     </script>
   </body>
 </html>
+
