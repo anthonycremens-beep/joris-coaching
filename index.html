@@ -554,12 +554,12 @@
           const o = {};
           Object.keys(r).forEach(k => o[norm(k).toLowerCase()] = r[k]);
           return {
-            jour:   norm(o["jour"]),
-            lieu:   norm(o["lieu"]),
-            adresse:norm(o["adresse"]),
-            cours:  norm(o["cours"]),
-            type:   norm(o["type"]),
-            heure:  norm(o["heure"]).replace('h',':'),
+            jour:    norm(o["jour"]),
+            lieu:    norm(o["lieu"]),
+            adresse: norm(o["adresse"]),
+            cours:   norm(o["cours"]),
+            type:    norm(o["type"]),
+            heure:   norm(o["heure"]).replace('h',':'),
             places: getPlaces(o),
             actif:  String(o["actif"]).toLowerCase()==="true"
           };
@@ -669,4 +669,3 @@
     </script>
   </body>
 </html>
-
